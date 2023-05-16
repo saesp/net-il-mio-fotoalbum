@@ -11,6 +11,7 @@
             <img src="@photo.Image" alt="">
             <p>@photo.Description</p>
             <div>@photo.Visible</div>
+            <a href="@Url.Action("Update", "Photo", new {id= photo.Id})"><button class="btn-danger rounded-1" width="50"><i class="fa-solid fa-pen-to-square"></i></button></a>
         </li>
         }
     </ul>
