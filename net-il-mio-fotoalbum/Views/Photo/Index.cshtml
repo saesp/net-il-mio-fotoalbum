@@ -11,9 +11,14 @@
             <img src="@photo.Image" alt="">
             <p>@photo.Description</p>
             <div>@photo.Visible</div>
-            <a href="@Url.Action("Read", "Photo", new {id= photo.Id})"><button class="btn-danger rounded-1" width="50"><i class="fa-solid fa-pen-to-square"></i></button></a>
+            <a href="@Url.Action("Read", "Photo", new {id= photo.Id})"><button class="btn-danger rounded-1" width="50">View<i class="fa-solid fa-pen-to-square"></i></button></a>
 
-            <a href="@Url.Action("Update", "Photo", new {id= photo.Id})"><button class="btn-danger rounded-1" width="50"><i class="fa-solid fa-pen-to-square"></i></button></a>
+            <a href="@Url.Action("Update", "Photo", new {id= photo.Id})"><button class="btn-danger rounded-1" width="50">Edit<i class="fa-solid fa-pen-to-square"></i></button></a>
+            <form asp-controller="Photo" asp-action="Delete" asp-route-id="@photo.Id" method="post">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn-danger rounded-1" width="50">Delete<i class="fa-solid fa-trash"></i></button>
+            </form>
+
         </li>
         }
     </ul>

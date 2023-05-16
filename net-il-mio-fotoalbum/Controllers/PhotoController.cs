@@ -93,7 +93,14 @@ namespace net_il_mio_fotoalbum.Controllers
             {
                 var photo = context.Photos.Where(p => p.Id == id).Include(p => p.Categories).FirstOrDefault();
 
-                return View(photo);
+                if (photo != null)
+                {
+                    return View(photo);
+                }
+                else
+                {
+                    return NotFound(); 
+                }
             }
         }
 
@@ -179,21 +186,24 @@ namespace net_il_mio_fotoalbum.Controllers
 
         //DELETE
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             using (PhotoContext context = new PhotoContext())
             {
-                Photo pizza = context.Photos.Where(p => p.Id == id).Include(p => p.Categories).FirstOrDefault();
+                Photo photoDelete = context.Photos.Where(p => p.Id == id).Include(p => p.Categories).FirstOrDefault();
 
-                if (pizza != null)
+                if (photoDelete != null)
                 {
-                    context.Photos.Remove(pizza);
+                    context.Photos.Remove(photoDelete);
                     context.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
-
-                return NotFound();
+                else
+                {
+                    return NotFound();
+                }
             }
         }
     }
