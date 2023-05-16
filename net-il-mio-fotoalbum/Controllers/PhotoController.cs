@@ -85,6 +85,19 @@ namespace net_il_mio_fotoalbum.Controllers
         }
 
 
+        //READ
+        [HttpGet]
+        public IActionResult Read(int id)
+        {
+            using (PhotoContext context = new PhotoContext())
+            {
+                var photo = context.Photos.Where(p => p.Id == id).Include(p => p.Categories).FirstOrDefault();
+
+                return View(photo);
+            }
+        }
+
+
         //UPDATE
         [HttpGet]
         public IActionResult Update(int id)
@@ -161,6 +174,26 @@ namespace net_il_mio_fotoalbum.Controllers
                 {
                     return NotFound();
                 }
+            }
+        }
+
+        //DELETE
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            using (PhotoContext context = new PhotoContext())
+            {
+                Photo pizza = context.Photos.Where(p => p.Id == id).Include(p => p.Categories).FirstOrDefault();
+
+                if (pizza != null)
+                {
+                    context.Photos.Remove(pizza);
+                    context.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+
+                return NotFound();
             }
         }
     }
