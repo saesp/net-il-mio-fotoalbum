@@ -21,7 +21,14 @@
             <span asp-validation-for="Photo.Description" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <strong>Ingredienti:</strong>
+            <strong>Visibile:</strong>
+                <select asp-for="@Model.Photo.Visible">
+                    <option value="@true">Sì</option>
+                    <option value="@false">No</option>
+                </select>
+        </div>
+        <div class="mb-3">
+            <strong>Categorie:</strong>
             @foreach (var category in Model.Categories)
             {
                 <div>
