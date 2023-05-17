@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using net_il_mio_fotoalbum.Models;
+using System.Data;
 
 namespace net_il_mio_fotoalbum.Controllers
 {
+    [Authorize(Roles = "SUPERADMIN,ADMIN")] //autorizzazione per tutto
     public class PhotoController : Controller
     {
         public IActionResult Index()
@@ -183,6 +186,7 @@ namespace net_il_mio_fotoalbum.Controllers
                 }
             }
         }
+
 
         //DELETE
         [HttpPost]

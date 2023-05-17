@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using net_il_mio_fotoalbum.Areas.Identity.Data;
 
 namespace net_il_mio_fotoalbum
 {
@@ -9,6 +10,7 @@ namespace net_il_mio_fotoalbum
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var connectionString = builder.Configuration.GetConnectionString("NomeContextConnection") ?? throw new InvalidOperationException("Connection string 'NomeContextConnection' not found.");
             //var connectionString = builder.Configuration.GetConnectionString("PizzeriaContextConnection") ?? throw new InvalidOperationException("Connection string 'PizzeriaContextConnection' not found.");
 
             // Add services to the container.
