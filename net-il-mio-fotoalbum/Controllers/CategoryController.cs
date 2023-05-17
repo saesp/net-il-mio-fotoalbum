@@ -37,7 +37,7 @@ namespace net_il_mio_fotoalbum.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Create", data);
+                return View("Create");
             }
 
             using PhotoContext context = new PhotoContext();
@@ -57,10 +57,10 @@ namespace net_il_mio_fotoalbum.Controllers
         //DELETE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(string name) //passo il name (che dovrà essere unico) dato che non ha un id
+        public IActionResult Delete(int id) 
         {
             using PhotoContext context = new PhotoContext();
-            var categoryDelete = context.Categories.Where(c => c.Name == name).FirstOrDefault();
+            var categoryDelete = context.Categories.Where(c => c.Id == id).FirstOrDefault();
 
             if (categoryDelete != null)
             {

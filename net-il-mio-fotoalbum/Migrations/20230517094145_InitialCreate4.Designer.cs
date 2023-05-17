@@ -5,14 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using net_il_mio_fotoalbum;
 
 #nullable disable
 
 namespace net_il_mio_fotoalbum.Migrations
 {
     [DbContext(typeof(PhotoContext))]
-    [Migration("20230516090820_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20230517094145_InitialCreate4")]
+    partial class InitialCreate4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -246,7 +247,8 @@ namespace net_il_mio_fotoalbum.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(411)
+                        .HasColumnType("nvarchar(411)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -266,7 +268,8 @@ namespace net_il_mio_fotoalbum.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(599)
+                        .HasColumnType("nvarchar(599)");
 
                     b.Property<string>("Image")
                         .IsRequired()

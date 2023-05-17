@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Categorie</h1>
 
-    <a href="@Url.Action("Create", "Category")"><button class="btn-danger rounded-1 mb-2" width="50">Aggiungi categoria<i class="fa-solid fa-pen-to-square"></i></button></a>
+    <a href="@Url.Action("Create", "Category")"><button class="btn-link rounded-1 mb-2" width="50">Aggiungi categoria<i class="fa-solid fa-pen-to-square"></i></button></a>
     @*<a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Create">Aggiungi foto</a>*@
 
     <ul>
@@ -12,7 +12,7 @@
         <li>
             <h3>@category.Name</h3>
             <p>@category.Description</p>
-            <form asp-controller="Category" asp-action="Delete" asp-route-name="@category.Name" method="post">
+            <form asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" method="post">
                 @Html.AntiForgeryToken()
                 <button type="submit" class="btn-danger rounded-1" width="50">Delete<i class="fa-solid fa-trash"></i></button>
             </form>

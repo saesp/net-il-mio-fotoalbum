@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <form asp-controller="Category" asp-action="Create" method="post" asp-route-id="@Model.Category.Id">
+    <form asp-controller="Category" asp-action="Create" method="post">
         @Html.AntiForgeryToken() @*CSRF*@
 
         <div class="mb-3">
