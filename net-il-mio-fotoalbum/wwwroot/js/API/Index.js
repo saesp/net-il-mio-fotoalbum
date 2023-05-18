@@ -19,27 +19,29 @@ function loadPhotos(searchKey) {
             document.getElementById('photos').innerHTML = '';
 
             res.data.forEach(photo => {
-                document.getElementById('photos').innerHTML +=
-                    `
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <h3 class="">${photo.title}</h3>
+                if (photo.visible == true) {
+                    document.getElementById('photos').innerHTML +=
+                        `
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <h3 class="">${photo.title}</h3>
                                 
-                            <img class="bd-placeholder-img card-img-top" src="${photo.image}" alt="" />
+                                <img class="bd-placeholder-img card-img-top" src="${photo.image}" alt="" />
 
-                            <p card-text>${photo.description}</p>
+                                <p card-text>${photo.description}</p>
 
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn btn-sm btn-outline-secondary">View</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn btn-sm btn-outline-secondary">View</div>
 
-                                <div>
-                                    <div class="btn btn-sm btn-outline-secondary">Edit</div>
-                                    <div class="btn btn-sm btn-outline-secondary">Delete</div>
+                                    <div>
+                                        <div class="btn btn-sm btn-outline-secondary">Edit</div>
+                                        <div class="btn btn-sm btn-outline-secondary">Delete</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    `;
+                        `;
+                }
             })
         //}
         })
