@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using net_il_mio_fotoalbum.Models;
 using System.Runtime.CompilerServices;
 
-namespace net_il_mio_fotoalbum
+namespace net_il_mio_fotoalbum.Areas
 {
     //Comunicare a .NET la configurazione del nostro DB e delle classi da usare
 
@@ -13,6 +13,7 @@ namespace net_il_mio_fotoalbum
     {
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

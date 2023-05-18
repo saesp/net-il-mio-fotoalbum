@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using net_il_mio_fotoalbum.Areas;
 using net_il_mio_fotoalbum.Models;
 using System.Data;
 
