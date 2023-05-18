@@ -1,0 +1,16 @@
+﻿<div>
+        <input type="text" id="subject" placeholder="Oggetto"/>
+        <span id="subject_validation" class="text-danger"></span>
+
+        <textarea id="content" rows="5" placeholder="Contenuto"></textarea>
+        <span id="content_validation" class="text-danger"></span>
+
+        <input type="email" id="email" placeholder="Email"/>
+        <span id="email_validation" class="text-danger"></span>
+
+        <div class="text-end">
+            <input type="button" class="btn btn-small btn-info" value="Invia" onclick="createMessage()">
+        </div>
+
+        @section Scripts { <script type="text/javascript" src="~/js/API/CreateMessage.js"></script> }
+    </div>
