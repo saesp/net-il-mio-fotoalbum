@@ -21,8 +21,6 @@ namespace net_il_mio_fotoalbum.Controllers.API
 
             IQueryable<Photo> photos = context.Photos;
 
-            //var photos = context.Photos.Include(p => p.Categories).ToList();
-
             return Ok(photos.ToList());
         }
 
