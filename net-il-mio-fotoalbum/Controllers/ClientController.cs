@@ -12,7 +12,7 @@ namespace net_il_mio_fotoalbum.Controllers
 
         public IActionResult CreateMessage()
         {
-            return View();
+            return View("Index");
         }
     }
 }

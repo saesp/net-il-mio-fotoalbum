@@ -7,7 +7,7 @@ function loadPhotos(searchKey) {
         }
     })
         .then((res) => {  //se la richiesta va a buon fine
-            console.log('risposta ok', res);
+            console.log('Risposta ok', res);
             //if (res.data.length == 0) {  //non ci sono post da mostrare => nascondo la tabella
             //    document.getElementById('post-table').classList.add('d-none');
             //    document.getElementById('no-posts').classList.remove('d-none');
