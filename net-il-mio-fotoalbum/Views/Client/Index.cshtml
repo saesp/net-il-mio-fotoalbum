@@ -1,22 +1,37 @@
-﻿<div class="container">
+﻿@*<HOME*@
+
+<div class="container">
+
+    @*lista foto*@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="photos"></div>
 
-    <div>
-            <input type="text" id="subject" placeholder="Oggetto"/>
-            <span id="subject_validation" class="text-danger"></span>
-            <br />
-            <textarea id="content" rows="5" placeholder="Contenuto"></textarea>
-            <span id="content_validation" class="text-danger"></span>
-            <br />
-            <input type="email" id="email" placeholder="Email"/>
-            <span id="email_validation" class="text-danger"></span>
-            <br />
-            <div class="text-end">
+
+    @*form messaggio*@
+    <h4>Invia un messaggio</h4>
+    <div class="m-auto">
+            <div>
+                <input type="text" id="subject" placeholder="Oggetto"/>
+                <span id="subject_validation" class="text-danger"></span>
+            </div>
+            
+            <div>
+                <textarea id="content" rows="5" placeholder="Contenuto"></textarea>
+                <span id="content_validation" class="text-danger"></span>
+            </div>
+
+            <div class="mb-2">
+                <input type="email" id="email" placeholder="Email"/>
+                <span id="email_validation" class="text-danger"></span>
+            </div>
+            
+            <div>
                 <input type="button" class="btn btn-small btn-info" value="Invia" onclick="createMessage()">
             </div>
     </div>
+
 </div>
 
+@*richiamo i file js*@
 @section Scripts { <script type="text/javascript" src="~/js/API/Index.js"></script> <script type="text/javascript" src="~/js/API/CreateMessage.js"></script>}
 
 <style>

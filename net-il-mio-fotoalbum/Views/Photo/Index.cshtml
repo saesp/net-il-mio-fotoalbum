@@ -1,27 +1,37 @@
 ﻿@model List<Photo>
 
 <div class="container">
-    <h1>Foto</h1>
+    <div class="d-flex align-items-center gap-2">
+        <h1 mb-2>Foto </h1>
+        <a href="@Url.Action("Create", "Photo")"><button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-plus"></i> Aggiungi</button></a>
+    </div>
 
     <ul class="row list-unstyled" id="photos-admin">
         @foreach(Photo photo in Model)
         {
         <li class="col-lg-4 col-md-6 col-sm-6">
             <div class="card shadow-sm">
-                <h3 class="text-center">@photo.Title}</h3>
+                <h3 class="text-center">@photo.Title</h3>
                                 
                 <img class="bd-placeholder-img card-img-top" src="@photo.Image" alt="" />
 
                 <p card-text>@photo.Description</p>
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="@Url.Action("Read", "Photo", new {id= photo.Id})"><button class="btn btn-sm btn-outline-secondary">View</button></a>
+                    <div class="d-flex align-items-center gap-2">
+                        <a href="@Url.Action("Read", "Photo", new {id= photo.Id})"><button class="btn btn-sm btn-outline-secondary">View</button></a>
+                        @if (photo.Visible == true){
+                            <span class="text-secondary"><i class="fa-regular fa-eye"></i></span>
+                        } else {
+                            <span class="text-secondary"><i class="fa-regular fa-eye-slash"></i></span>
+                        }
+                    </div>
 
                     <div class="d-flex gap-1">
                         <a href="@Url.Action("Update", "Photo", new {id= photo.Id})"><button class="btn btn-sm btn-outline-secondary">Edit</button></a>
                         <form asp-controller="Photo" asp-action="Delete" asp-route-id="@photo.Id" method="post">
                             @Html.AntiForgeryToken()
-                            <button class="btn btn-sm btn-outline-secondary" onclick="return confirm('are you sure to destroy Photo n# @photo.Id ?')">Delete</button>
+                            <button class="btn btn-sm btn-outline-secondary text-danger" onclick="return confirm('Sei sicuro di voler eliminare la foto @photo.Title?')">Delete</button>
                         </form>
                     </div>
                 </div>
