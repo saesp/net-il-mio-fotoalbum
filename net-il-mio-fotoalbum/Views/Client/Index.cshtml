@@ -7,26 +7,25 @@
 
 
     @*form messaggio*@
-    <h4>Invia un messaggio</h4>
-    <div class="m-auto">
-            <div>
-                <input type="text" id="subject" placeholder="Oggetto"/>
+    <h3 class="mt-5">Invia un messaggio</h3>
+
+    <div class="">
+            <div class="mb-3">
+                <input type="text" id="subject" placeholder="Oggetto" class="form-control"/>
                 <span id="subject_validation" class="text-danger"></span>
             </div>
             
-            <div>
-                <textarea id="content" rows="5" placeholder="Contenuto"></textarea>
+            <div class="mb-3">
+                <textarea id="content" rows="5" placeholder="Contenuto" class="form-control"></textarea>
                 <span id="content_validation" class="text-danger"></span>
             </div>
 
-            <div class="mb-2">
-                <input type="email" id="email" placeholder="Email"/>
+            <div class="mb-3">
+                <input type="email" id="email" placeholder="Email" class="form-control"/>
                 <span id="email_validation" class="text-danger"></span>
             </div>
             
-            <div>
-                <input type="button" class="btn btn-small btn-info" value="Invia" onclick="createMessage()">
-            </div>
+            <button type="submit" class="btn btn-primary" onclick="createMessage()">Invia</button>
     </div>
 
 </div>

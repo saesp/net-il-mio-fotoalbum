@@ -11,6 +11,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach(Message message in Model)
                 {
                 <tr>
@@ -18,9 +19,8 @@
                         <form asp-controller="Message" asp-action="Delete" asp-route-id="@message.Id" method="post">
                             @Html.AntiForgeryToken()
                             <button type="submit" class="btn-danger" onclick="return confirm('Sei sicuro di voler eliminare il messaggio di @message.Email?')"><i class="fa-solid fa-trash"></i></button>
-                        </form>
-                    </td>
-                    <td>@message.Email</td>
+                        </form> 
+                        @message.Email</td>
                     <td>@message.Subject</td>
                     <td>@message.Content</td>
                 </tr>

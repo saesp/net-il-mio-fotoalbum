@@ -13,6 +13,8 @@ namespace net_il_mio_fotoalbum.Controllers
 
             var messages = context.Messages.ToList();
 
+            messages.Reverse(); //Reverse() serve ad invertire l'ordine della lista
+
             return View(messages);
         }
 
